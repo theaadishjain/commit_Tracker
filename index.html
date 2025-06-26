@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSC GitHub Commit Counter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">COSC GitHub Commit Counter</h1>
+    <div class="repo-info">
+      <span id="github-user">User</span> /
+      <span id="github-repo">Repo</span>
+    </div>
+    <div class="toggle-group">
+      <button id="toggle-today" class="toggle-btn active">Today</button>
+      <button id="toggle-week" class="toggle-btn">This Week</button>
+    </div>
+    <div class="counter" id="counter">0</div>
+    <div class="last-update" id="last-update">Last update: --</div>
+    <div class="button-group">
+      <button id="refresh" class="btn refresh">🔁 Refresh</button>
+      <button id="details" class="btn details">📊 Details</button>
+      <button id="reset-view" class="btn reset-view">🧹 Reset View</button>
+    </div>
+    <div class="spinner" id="spinner" style="display:none;"></div>
+  </div>
+  <div class="modal" id="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Recent Commits</h2>
+      <ul id="commit-list"></ul>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 

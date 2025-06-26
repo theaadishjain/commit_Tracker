@@ -1,0 +1,238 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.container {
+  background: rgba(40, 44, 52, 0.7);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+  max-width: 370px;
+  width: 90vw;
+  backdrop-filter: blur(12px);
+  color: #fff;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.repo-info {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #a0c4ff;
+  margin-bottom: 0.5rem;
+}
+
+.counter {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #7ee787;
+  margin-bottom: 1.2rem;
+  transition: color 0.2s;
+  text-shadow: 0 2px 18px #222a;
+}
+
+.last-update {
+  font-size: 0.95rem;
+  color: #bdbdbd;
+  margin-bottom: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.9rem 1.3rem;
+  border: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37,117,252,0.08);
+  transition: transform 0.1s, box-shadow 0.2s, background 0.2s, color 0.2s;
+  outline: none;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.btn.refresh {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+  color: #0a3d62;
+}
+
+.btn.details {
+  background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+  color: #6a040f;
+}
+
+.btn.reset-view {
+  background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
+  color: #7c4700;
+}
+
+.btn:hover, .btn:focus {
+  filter: brightness(1.15);
+  box-shadow: 0 0 16px 4px #7ee78744;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.btn:active {
+  animation: bounce 0.25s;
+  box-shadow: 0 0 16px 4px #7ee78744;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  60% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.spinner {
+  margin: 1.2rem auto 0 auto;
+  border: 6px solid #eee3;
+  border-top: 6px solid #7ee787;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(30, 34, 40, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: rgba(40, 44, 52, 0.97);
+  border-radius: 1.2rem;
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  min-width: 270px;
+  max-width: 95vw;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.close:hover {
+  color: #fa709a;
+}
+
+#commit-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0 0;
+}
+#commit-list li {
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #444a;
+  font-size: 1rem;
+}
+#commit-list li:last-child {
+  border-bottom: none;
+}
+
+.toggle-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.toggle-btn {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 1.2rem;
+  background: rgba(255,255,255,0.10);
+  color: #a0c4ff;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.toggle-btn.active {
+  background: linear-gradient(90deg, #7ee787 0%, #43e97b 100%);
+  color: #232526;
+  box-shadow: 0 2px 8px #7ee78744;
+}
+.toggle-btn:hover:not(.active) {
+  background: #232526;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+  .counter {
+    font-size: 3rem;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.7rem;
+  }
+  .button-group {
+    gap: 0.5rem;
+  }
+  .modal-content {
+    padding: 1.2rem 0.5rem 0.7rem 0.5rem;
+    min-width: 90vw;
+  }
+  .toggle-btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.7rem;
+  }
+} 
